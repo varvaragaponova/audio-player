@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main {
+    position: relative;
+}
+
+.filter {
+    width: 100vw;
+    height: 100vh;
+    filter: blur(10px);
+    background-image: url("./assets/images/five-finger.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.player_wrapper {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    background-color: #4c1f1f;
+    border-radius: 10%;
+    z-index: 1;
+    box-shadow: 0px 0px 64px 43px rgba(0, 0, 0, 0.8);
+}
+
+.controls_container {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.play_arrow {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
+
+.play_prev {
+    background-image: url("./assets/images/prev.svg");
+}
+
+.play_next {
+    background-image: url("./assets/images/next.svg");
+}
+
+.play {
+    background-image: url("./assets/images/play.svg");
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
+
+.album {
+    display: inline-block;
+    width: 100%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+.single_author {
+    color: 	#EAA3A0;
+    font-size: 22px;
+}
+
+.single_name {
+    font-size: 20px;
+    color: #F4D1CF;
+}
+
+.progress_container {
+    width: 90%;
+    margin: 10px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+input[type='range'].progress {
+    height: 12px;
+    width: 70%;
+    background-color: #F4D1CF;
+    -webkit-appearance: none;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+input[type='range'].progress::-webkit-slider-thumb {
+    width: 12px;
+    -webkit-appearance: none;
+    height: 12px;
+    background: #941414;
+    box-shadow: -300px 0 0 300px #DF7670;
+}
+
+.time_now,
+.time_all {
+    color: #F4D1CF;
+}
+
+.volume_container {
+    position: relative;
+}
+
+.volume {
+    position: absolute;
+    background-image: url("./assets/images/volume.svg");
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    top: 50%;
+    background-color: transparent;
+    border: none;
+}
+
+.volume_range {
+    position: absolute;
+    left: 55%;
+    transform: translateY(70%);
+}
+
+input[type='range'].volume_range {
+    height: 12px;
+    width: 27%;
+    background-color: #F4D1CF;
+    -webkit-appearance: none;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+input[type='range'].volume_range::-webkit-slider-thumb {
+    width: 12px;
+    -webkit-appearance: none;
+    height: 12px;
+    background: #941414;
+    box-shadow: -100px 0 0 100px #DF7670;
+}
+
+.footer {
+    position: absolute;
+    background-color: rgba(255, 255, 255, .3);
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.git_img {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+
+.school_img {
+    display: inline-block;
+    width: 100px;
+}
+
+.year {
+    font-size: 25px;
+}
