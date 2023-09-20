@@ -51,6 +51,7 @@ body {
     background-size: contain;
     background-color: transparent;
     border: none;
+    transition: all .2s;
 }
 
 .play_prev {
@@ -68,6 +69,11 @@ body {
     background-size: contain;
     background-color: transparent;
     border: none;
+    transition: all .2s;
+}
+
+.pause {
+    transition: all .2s;
 }
 
 .album {
@@ -112,6 +118,10 @@ input[type='range'].progress::-webkit-slider-thumb {
     box-shadow: -300px 0 0 300px #DF7670;
 }
 
+.progress {
+    transition: all .2s;
+}
+
 .time_now,
 .time_all {
     color: #F4D1CF;
@@ -138,6 +148,7 @@ input[type='range'].progress::-webkit-slider-thumb {
     position: absolute;
     left: 55%;
     transform: translateY(70%);
+    transition: all .2s;
 }
 
 input[type='range'].volume_range {
@@ -180,4 +191,23 @@ input[type='range'].volume_range::-webkit-slider-thumb {
 
 .year {
     font-size: 25px;
+}
+
+@media (any-hover: hover) {
+    .play_arrow:hover,
+    .pause:hover,
+    .play:hover,
+    .volume:hover,
+    .progress:hover,
+    .volume_range:hover {
+        cursor: pointer;
+    }
+
+    .play_arrow:hover,
+    .pause:hover,
+    .play:hover,
+    .volume:hover {
+        scale: 1.1;
+        transition: all .2s;
+    }
 }
