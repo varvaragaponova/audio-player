@@ -5,6 +5,7 @@ const playPrevAudio = document.querySelector('.play_prev');
 const textAuthor = document.querySelector('.single_author');
 const textNameSingle = document.querySelector('.single_name');
 const albumImg = document.querySelector('.album');
+const backgroundImg = document.querySelector('.filter_img');
 
 let audio;
 let numberSong = 0;
@@ -50,7 +51,7 @@ const imgForSingle = [
     `./assets/images/five-finger.jpg`,
     `./assets/images/oomph!.jpg`,
     `./assets/images/Skillet.jpg`,
-    `./assets/images/tfk.jpg`,
+    `./assets/images/tfk1.jpg`,
     `./assets/images/tdg.jpg`
 ]
 
@@ -94,17 +95,19 @@ function playNext() {
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
+    backgroundImg.src = imgForSingle[numberSong];
 }
 
 function playPrev() {
 
     if(numberSong <= 0) {
-        numberSong = soundLinks.length - 1;
+        numberSong = soundLinks.length;
     }
     numberSong = numberSong - 1;
 
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
+    backgroundImg.src = imgForSingle[numberSong];
 }
 
