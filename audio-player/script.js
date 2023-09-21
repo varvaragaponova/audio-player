@@ -84,9 +84,9 @@ function pauseAudio() {
 function playNext() {
     if(!audio) {
         numberSong;
-    } else {
-        numberSong += 1;
     }
+
+    numberSong += 1;
 
     if(numberSong > soundLinks.length - 1) {
         numberSong = 0;
