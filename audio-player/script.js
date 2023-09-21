@@ -4,6 +4,7 @@ const playNextAudio = document.querySelector('.play_next');
 const playPrevAudio = document.querySelector('.play_prev');
 const textAuthor = document.querySelector('.single_author');
 const textNameSingle = document.querySelector('.single_name');
+const albumImg = document.querySelector('.album');
 
 let audio;
 let numberSong = 0;
@@ -43,6 +44,14 @@ const soundLinks = [
     `./assets/music/Skillet.mp3`,
     `./assets/music/Thousand_Foot_Krutch.mp3`,
     `./assets/music/Three_Days_Grace.mp3`
+];
+
+const imgForSingle = [
+    `./assets/images/five-finger.jpg`,
+    `./assets/images/oomph!.jpg`,
+    `./assets/images/Skillet.jpg`,
+    `./assets/images/tfk.jpg`,
+    `./assets/images/tdg.jpg`
 ]
 
 function playAudio() {
@@ -84,6 +93,7 @@ function playNext() {
 
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];
+    albumImg.src = imgForSingle[numberSong];
 }
 
 function playPrev() {
@@ -95,5 +105,6 @@ function playPrev() {
 
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];
+    albumImg.src = imgForSingle[numberSong];
 }
 
