@@ -1,6 +1,7 @@
 const audioPlayBtn = document.querySelector('.play');
 const audioPauseBtn = document.querySelector('.pause');
 const playNextAudio = document.querySelector('.play_next');
+const playPrevAudio = document.querySelector('.play_prev');
 const textAuthor = document.querySelector('.single_author');
 const textNameSingle = document.querySelector('.single_name');
 
@@ -9,11 +10,16 @@ let numberSong = 0;
 
 audioPlayBtn.addEventListener('click', playAudio);
 audioPauseBtn.addEventListener('click', pauseAudio);
+
 playNextAudio.addEventListener('click', () => {
     playNext();
     playAudio();
-    console.log(1);
-})
+});
+
+playPrevAudio.addEventListener('click', () => {
+    playPrev();
+    playAudio();
+});
 
 const soundsAuthor = [
     "Five Finger Death Punch",
@@ -75,6 +81,17 @@ function playNext() {
     if(numberSong > soundLinks.length - 1) {
         numberSong = 0;
     }
+
+    textAuthor.textContent = soundsAuthor[numberSong];
+    textNameSingle.textContent = soundsName[numberSong];
+}
+
+function playPrev() {
+
+    if(numberSong <= 0) {
+        numberSong = soundLinks.length - 1;
+    }
+    numberSong = numberSong - 1;
 
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];

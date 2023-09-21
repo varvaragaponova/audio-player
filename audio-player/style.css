@@ -52,7 +52,7 @@ body {
     background-size: contain;
     background-color: transparent;
     border: none;
-    transition: all .2s;
+    transition: scale .2s;
 }
 
 .play_prev {
