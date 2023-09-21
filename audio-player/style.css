@@ -41,7 +41,8 @@ body {
 .controls_container {
     display: flex;
     margin-top: 15px;
-    justify-content: space-around;
+    padding: 0 10px;
+    gap: 6px;
     align-items: center;
 }
 
@@ -69,7 +70,7 @@ body {
     background-size: contain;
     background-color: transparent;
     border: none;
-    transition: all .2s;
+    transition: scale .2s;
 }
 
 .pause {
