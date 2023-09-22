@@ -24,9 +24,8 @@ window.addEventListener("load", () => {
     }
 })
 
-audioPlayBtn.addEventListener('click', () => {
-    playAudio();
-});
+audioPlayBtn.addEventListener('click', playAudio);
+
 audioPauseBtn.addEventListener('click', pauseAudio);
 
 playNextAudio.addEventListener('click', () => {
@@ -41,6 +40,10 @@ playPrevAudio.addEventListener('click', () => {
 
 progressRange.addEventListener("input", (e) => {
     currentTimeAudio(e);
+});
+
+volumeRange.addEventListener("input", (e) => {
+    audio.volume = e.target.value / 100;
 });
 
 const soundsAuthor = [
@@ -160,7 +163,6 @@ function currentTimeAudio(e) {
 }
 
 volumeBtn.addEventListener("click", () => {
-
     if(audio && volumeBtn.classList.contains("volume_visible")) {
         audio.muted = true;
         volumeBtn.classList.remove("volume_visible");
@@ -176,8 +178,4 @@ volumeBtn.addEventListener("click", () => {
     } else {
         volumeRange.value = "100";
     }
-});
-
-volumeRange.addEventListener("input", (e) => {
-    audio.volume = e.target.value / 100;
 });

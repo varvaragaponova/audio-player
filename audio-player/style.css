@@ -189,7 +189,7 @@ input[type='range'].volume_range {
 input[type='range'].volume_range::-webkit-slider-thumb {
     width: 12px;
     -webkit-appearance: none;
-    height: 12px;
+    height: 14px;
     background: #941414;
     box-shadow: -100px 0 0 100px #DF7670;
 }
