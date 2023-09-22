@@ -9,6 +9,8 @@ const backgroundImg = document.querySelector('.filter_img');
 const progressRange = document.querySelector('.progress');
 const currentTimeNow = document.querySelector('.time_now');
 const timeAudio = document.querySelector('.time_all');
+const volumeRange = document.querySelector('.volume_range');
+const volumeBtn = document.querySelector('.volume');
 
 let audio;
 let numberSong = 0;
@@ -156,3 +158,24 @@ function currentTimeAudio(e) {
         currentTimeNow.textContent = getTimeCodeFromNum(audio.currentTime);
     }, 500);
 }
+
+volumeBtn.addEventListener("click", () => {
+
+    if(audio && volumeBtn.classList.contains("volume_visible")) {
+        audio.muted = true;
+        volumeBtn.classList.remove("volume_visible");
+        volumeBtn.classList.add("volume_none");
+    } else if(audio && volumeBtn.classList.contains("volume_none")) {
+        audio.muted = false;
+        volumeBtn.classList.add("volume_visible");
+        volumeBtn.classList.remove("volume_none");
+    }
+});
+
+volumeRange.addEventListener("input", (e) => {
+    console.log(e);
+    audio.volume = e.target.value / 100;
+    if(audio.muted == true) {
+        volumeRange.value = "0";
+    }
+});

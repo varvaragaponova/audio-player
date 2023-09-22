@@ -151,8 +151,6 @@ input[type='range'].progress::-webkit-slider-thumb {
 
 .volume {
     position: absolute;
-    background-image: url("./assets/images/volume.svg");
-    background-size: contain;
     width: 30px;
     height: 30px;
     left: 50%;
@@ -160,6 +158,16 @@ input[type='range'].progress::-webkit-slider-thumb {
     top: 50%;
     background-color: transparent;
     border: none;
+}
+
+.volume_visible {
+    background-image: url("./assets/images/volume.svg");
+    background-size: contain;
+}
+
+.volume_none {
+    background-image: url("./assets/images/volume_none.svg");
+    background-size: contain;
 }
 
 .volume_range {
