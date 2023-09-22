@@ -6,11 +6,25 @@ const textAuthor = document.querySelector('.single_author');
 const textNameSingle = document.querySelector('.single_name');
 const albumImg = document.querySelector('.album');
 const backgroundImg = document.querySelector('.filter_img');
+const progressRange = document.querySelector('.progress');
+const currentTimeNow = document.querySelector('.time_now');
+const timeAudio = document.querySelector('.time_all');
 
 let audio;
 let numberSong = 0;
+let timeAudioAll;
 
-audioPlayBtn.addEventListener('click', playAudio);
+window.addEventListener("load", () => {
+    if(audio) {
+        timeAudio.textContent = getTimeCodeFromNum(audio.duration);
+    } else {
+        timeAudio.textContent = '03:08';
+    }
+})
+
+audioPlayBtn.addEventListener('click', () => {
+    playAudio();
+});
 audioPauseBtn.addEventListener('click', pauseAudio);
 
 playNextAudio.addEventListener('click', () => {
@@ -21,6 +35,10 @@ playNextAudio.addEventListener('click', () => {
 playPrevAudio.addEventListener('click', () => {
     playPrev();
     playAudio();
+});
+
+progressRange.addEventListener("input", (e) => {
+    currentTimeAudio(e);
 });
 
 const soundsAuthor = [
@@ -64,11 +82,18 @@ function playAudio() {
     }
 
     audio.src = soundLinks[numberSong];
+    audio.currentTime = 0;
     audio.play();
     audioPlayBtn.classList.remove('visible');
     audioPlayBtn.classList.add('hidden');
     audioPauseBtn.classList.remove('hidden');
     audioPauseBtn.classList.add('visible');
+
+    setInterval(() => {
+        progressRange.value = (audio.currentTime * 100) / audio.duration;
+        currentTimeNow.textContent = getTimeCodeFromNum(audio.currentTime);
+        timeAudio.textContent = getTimeCodeFromNum(audio.duration);
+    }, 500);
 }
 
 function pauseAudio() {
@@ -96,6 +121,8 @@ function playNext() {
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
+
+    timeAudio.textContent = getTimeCodeFromNum(audio.duration);
 }
 
 function playPrev() {
@@ -109,5 +136,23 @@ function playPrev() {
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
+
+    timeAudio.textContent = getTimeCodeFromNum(audio.duration);
 }
 
+function getTimeCodeFromNum(num) {
+    let seconds = parseInt(num);
+    let minutes = parseInt(seconds / 60);
+    seconds -= minutes * 60;
+    const hours = parseInt(minutes / 60);
+    minutes -= hours * 60;
+
+    return `${String(minutes).padStart(2, 0)}:${String(seconds).padStart(2, 0)}`;
+}
+
+function currentTimeAudio(e) {
+    audio.currentTime = (e.target.value / 100) * audio.duration;
+    setInterval(() => {
+        currentTimeNow.textContent = getTimeCodeFromNum(audio.currentTime);
+    }, 500);
+}
