@@ -170,12 +170,14 @@ volumeBtn.addEventListener("click", () => {
         volumeBtn.classList.add("volume_visible");
         volumeBtn.classList.remove("volume_none");
     }
+
+    if(audio.muted == true) {
+        volumeRange.value = "0";
+    } else {
+        volumeRange.value = "100";
+    }
 });
 
 volumeRange.addEventListener("input", (e) => {
-    console.log(e);
     audio.volume = e.target.value / 100;
-    if(audio.muted == true) {
-        volumeRange.value = "0";
-    }
 });
