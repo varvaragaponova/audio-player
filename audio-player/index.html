@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="./assets/images/favicon.ico" rel="shortcut icon"/>
+    <link href="./assets/music/Five_Finger_Death_Punch.mp3" rel="preload" as="audio">
+    <link href="./assets/music/OOMPH!.mp3" rel="preload" as="audio">
+    <link href="./assets/music/Skillet.mp3" rel="preload" as="audio">
+    <link href="./assets/music/Thousand_Foot_Krutch.mp3" rel="preload" as="audio">
+    <link href="./assets/music/Three_Days_Grace.mp3" rel="preload" as="audio">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <title>Player</title>
@@ -18,6 +23,13 @@
                 <img src="./assets/images/five-finger.jpg" alt="five_finger" class="album">
             </div>
             <div class="player">
+                <audio>
+                    <source src="./assets/music/Five_Finger_Death_Punch.mp3">
+                    <source src="./assets/music/OOMPH!.mp3">
+                    <source src="./assets/music/Skillet.mp3">
+                    <source src="./assets/music/Thousand_Foot_Krutch.mp3">
+                    <source src="./assets/music/Three_Days_Grace.mp30">
+                </audio>
                 <div class="container">
                     <div class="controls_container">
                         <div class="controls">

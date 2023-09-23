@@ -97,7 +97,11 @@ function playAudio() {
     setInterval(() => {
         progressRange.value = (audio.currentTime * 100) / audio.duration;
         currentTimeNow.textContent = getTimeCodeFromNum(audio.currentTime);
-        timeAudio.textContent = getTimeCodeFromNum(audio.duration);
+        if(getTimeCodeFromNum(audio.duration) == 'NaN:NaN') {
+            timeAudio.textContent = "00:00";
+        } else {
+            timeAudio.textContent = getTimeCodeFromNum(audio.duration);
+        }
     }, 500);
 }
 
@@ -126,8 +130,6 @@ function playNext() {
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
-
-    timeAudio.textContent = getTimeCodeFromNum(audio.duration);
 }
 
 function playPrev() {
@@ -141,8 +143,6 @@ function playPrev() {
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
-
-    timeAudio.textContent = getTimeCodeFromNum(audio.duration);
 }
 
 function getTimeCodeFromNum(num) {
