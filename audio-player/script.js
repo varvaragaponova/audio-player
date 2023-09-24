@@ -87,6 +87,7 @@ function playAudio() {
     }
 
     audio.play();
+
     audioPlayBtn.classList.remove('visible');
     audioPlayBtn.classList.add('hidden');
     audioPauseBtn.classList.remove('hidden');
@@ -124,7 +125,9 @@ function playNext() {
         numberSong = 0;
     }
 
-    audio.src = soundLinks[numberSong];
+    if(audio) {
+        audio.src = soundLinks[numberSong];
+    }
 
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];
@@ -139,7 +142,9 @@ function playPrev() {
     }
     numberSong = numberSong - 1;
 
-    audio.src = soundLinks[numberSong];
+    if(audio) {
+        audio.src = soundLinks[numberSong];
+    }
 
     textAuthor.textContent = soundsAuthor[numberSong];
     textNameSingle.textContent = soundsName[numberSong];
