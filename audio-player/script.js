@@ -188,8 +188,9 @@ volumeBtn.addEventListener("click", () => {
     }
 
     if(audio?.muted == true) {
-        volumeRange.value = "0";
+        volumeRange.value = 0;
     } else {
-        volumeRange.value = "100";
+        volumeRange.value = 100;
+        audio.volume = volumeRange.value / 100;
     }
 });
