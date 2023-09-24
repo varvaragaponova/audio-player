@@ -26,7 +26,10 @@ window.addEventListener("load", () => {
     }
 })
 
-audioPlayBtn.addEventListener('click', playAudio);
+audioPlayBtn.addEventListener('click', () => {
+    playAudio();
+    audioEnded();
+});
 
 audioPauseBtn.addEventListener('click', pauseAudio);
 
@@ -104,14 +107,20 @@ function playAudio() {
             timeAudio.textContent = getTimeCodeFromNum(audio.duration);
         }
     }, 500);
+}
 
+function audioEnded() {
     audio.addEventListener('ended', () => {
         if(numberSong >= soundLinks.length - 1) {
-            numberSong = -1;
+            numberSong = 0;
+        } else {
+            numberSong++;
         }
-        console.log(numberSong);
-        numberSong++;
-        audio.src = soundLinks[numberSong];
+
+        if(audio) {
+            audio.src = soundLinks[numberSong];
+        }
+
         audio.play();
         textAuthor.textContent = soundsAuthor[numberSong];
         textNameSingle.textContent = soundsName[numberSong];
@@ -132,6 +141,7 @@ function pauseAudio() {
 }
 
 function playNext() {
+
     if(!audio) {
         numberSong;
     }
@@ -151,6 +161,7 @@ function playNext() {
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
     progressRange.value = 0;
+
 }
 
 function playPrev() {
@@ -158,6 +169,7 @@ function playPrev() {
     if(numberSong <= 0) {
         numberSong = soundLinks.length;
     }
+
     numberSong = numberSong - 1;
 
     if(audio) {
