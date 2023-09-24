@@ -133,6 +133,7 @@ function playNext() {
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
+    progressRange.value = 0;
 }
 
 function playPrev() {
@@ -150,6 +151,7 @@ function playPrev() {
     textNameSingle.textContent = soundsName[numberSong];
     albumImg.src = imgForSingle[numberSong];
     backgroundImg.src = imgForSingle[numberSong];
+    progressRange.value = 0;
 }
 
 function getTimeCodeFromNum(num) {
@@ -170,6 +172,11 @@ function currentTimeAudio(e) {
 }
 
 volumeBtn.addEventListener("click", () => {
+    if(!audio) {
+        audio = new Audio();
+        audio.src = soundLinks[numberSong];
+    }
+
     if(audio && volumeBtn.classList.contains("volume_visible")) {
         audio.muted = true;
         volumeBtn.classList.remove("volume_visible");
@@ -180,7 +187,7 @@ volumeBtn.addEventListener("click", () => {
         volumeBtn.classList.remove("volume_none");
     }
 
-    if(audio.muted == true) {
+    if(audio?.muted == true) {
         volumeRange.value = "0";
     } else {
         volumeRange.value = "100";
