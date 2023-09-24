@@ -70,6 +70,7 @@ body {
     height: 50px;
     background-size: contain;
     background-color: transparent;
+    background-repeat: no-repeat;
     border: none;
     transition: scale .2s;
 }
@@ -80,6 +81,7 @@ body {
     height: 50px;
     background-size: contain;
     background-color: transparent;
+    background-repeat: no-repeat;
     border: none;
     transition: scale .2s;
 }
@@ -265,5 +267,13 @@ input[type='range'].volume_range::-webkit-slider-thumb {
 
     input[type='range'].volume_range {
         width: 23%;
+    }
+
+    .single_name {
+        font-size: 18px;
+    }
+
+    .single_author {
+        font-size: 20px;
     }
 }
