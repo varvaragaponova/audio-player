@@ -237,3 +237,33 @@ input[type='range'].volume_range::-webkit-slider-thumb {
         transition: all .2s;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .player_wrapper {
+        width: 80vw;
+        height: 80vh;
+    }
+
+    .controls_container {
+        flex-direction: column;
+        margin-top: 5px;
+    }
+
+    .album {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .progress_container {
+        gap: 5px;
+    }
+
+    .volume_range {
+        left: 56%;
+    }
+
+    input[type='range'].volume_range {
+        width: 23%;
+    }
+}
