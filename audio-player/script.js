@@ -1,3 +1,5 @@
+console.log("Итоговая оценка: 70\nВёрстка +10(есть кнопка Play/Pause, кнопки 'Вперёд' и 'Назад', прогресс-бар, отображается название и автор трека, в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс)\nКнопка Play/Pause +10(есть кнопка Play/Pause, при клике по которой можно запустить или остановить проигрывание аудиотрека, внешний вид и функционал кнопки Play/Pause изменяется в зависимости от того, проигрывается ли в данный момент аудиотрек\nПри кликах по кнопкам 'Вперёд' и 'Назад' переключается проигрываемый аудиотрек. Аудиотреки пролистываются по кругу - после последнего идёт первый +10\nПри смене аудиотрека меняется изображение - обложка аудиотрека +10\nПрогресс-бар отображает прогресс проигрывания текущего аудиотрека. При перемещении ползунка вручную меняется текущее время проигрывания аудиотрека +10\nОтображается продолжительность аудиотрека и его текущее время проигрывания +10\nОчень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10");
+
 const audioPlayBtn = document.querySelector('.play');
 const audioPauseBtn = document.querySelector('.pause');
 const playNextAudio = document.querySelector('.play_next');
@@ -102,6 +104,21 @@ function playAudio() {
             timeAudio.textContent = getTimeCodeFromNum(audio.duration);
         }
     }, 500);
+
+    audio.addEventListener('ended', () => {
+        if(numberSong >= soundLinks.length - 1) {
+            numberSong = -1;
+        }
+        console.log(numberSong);
+        numberSong++;
+        audio.src = soundLinks[numberSong];
+        audio.play();
+        textAuthor.textContent = soundsAuthor[numberSong];
+        textNameSingle.textContent = soundsName[numberSong];
+        albumImg.src = imgForSingle[numberSong];
+        backgroundImg.src = imgForSingle[numberSong];
+        progressRange.value = 0;
+    })
 }
 
 function pauseAudio() {
