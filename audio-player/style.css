@@ -243,7 +243,7 @@ input[type='range'].volume_range::-webkit-slider-thumb {
 @media screen and (max-width: 540px) {
     .player_wrapper {
         width: 80vw;
-        height: 80vh;
+        height: 495px;
     }
 
     .controls_container {
